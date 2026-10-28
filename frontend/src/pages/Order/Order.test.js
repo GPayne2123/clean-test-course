@@ -37,7 +37,8 @@ describe('Test Order', () => {
     );
     //Assert: replace the return true.
     await waitFor(() => {
-      return true;
+      expect(screen.getAllByText('$2.50'))
+        .toHaveLength(1);
     });
   });
 
@@ -55,7 +56,7 @@ describe('Test Order', () => {
 
     //ACT
     //Update the Delivery distance by choosing the 5 mile option from the drop down
-    userEvent.selectOptions(
+    await userEvent.selectOptions(
       // Find the select element, like a real user would.
       screen.getByRole('combobox'),
       // Find and select the 5 mile option, like a real user would.
@@ -63,7 +64,8 @@ describe('Test Order', () => {
     );
     //Assert: replace the return true.
     await waitFor(() => {
-      return true;
+      expect(screen.getAllByText('$5.00'))
+        .toHaveLength(1);
     });
   });
 });
