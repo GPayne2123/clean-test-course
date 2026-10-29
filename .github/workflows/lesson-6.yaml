@@ -41,7 +41,7 @@ jobs:
         if: always()
         with:
           name: cypress-videos
-          path: frontend/cypress/videos#  security_test:
+          path: frontend/cypress/videos#
 
 #    needs: [deploy]
 #    runs-on: ubuntu-latest
